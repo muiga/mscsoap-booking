@@ -1,0 +1,101 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://com.mscdemosoap.all"
+	xmlns:tns="http://com.mscdemosoap.all"
+	elementFormDefault="qualified">
+
+	<xs:complexType  name="clientInfo">		
+			<xs:sequence>
+				<xs:element name="clientId" type="xs:long" />
+				<xs:element name="name" type="xs:string" />
+				<xs:element name="phone" type="xs:string" />	
+				<xs:element name="email" type="xs:string" />				
+			</xs:sequence>		
+	</xs:complexType>
+	
+	<xs:complexType name="serviceStatus">		
+			<xs:sequence>
+				<xs:element name="status" type="xs:string" />
+				<xs:element name="message" type="xs:string" />								
+			</xs:sequence>		
+	</xs:complexType>
+
+	<xs:element name="addClientRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="clientInfo" type="tns:clientInfo" />				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="addClientResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceStatus" type="tns:serviceStatus" />
+				<xs:element name="clientInfo" type="tns:clientInfo" />				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+		<xs:complexType  name="roomInfo">		
+			<xs:sequence>
+				<xs:element name="roomId" type="xs:long" />
+				<xs:element name="type" type="xs:string" />
+				<xs:element name="price" type="xs:float" />	
+			</xs:sequence>		
+	</xs:complexType>
+	
+
+	<xs:element name="addRoomRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="roomInfo" type="tns:roomInfo" />				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="addRoomResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceStatus" type="tns:serviceStatus" />
+				<xs:element name="roomInfo" type="tns:roomInfo" />				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+	
+		<xs:complexType  name="bookingInfo">		
+			<xs:sequence>
+				<xs:element name="bookingId" type="xs:long" />
+				<xs:element name="roomId" type="xs:long" />
+				<xs:element name="clientId" type="xs:long" />
+				<xs:element name="days" type="xs:long" />
+			</xs:sequence>		
+	</xs:complexType>
+	
+
+	<xs:element name="addBookingRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="bookingInfo" type="tns:bookingInfo" />				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="addBookingResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceStatus" type="tns:serviceStatus" />
+				<xs:element name="bookingId" type="xs:long" />
+				<xs:element name="clientName" type="xs:string" />
+				<xs:element name="roomId" type="xs:long" />
+				<xs:element name="roomType" type="xs:string" />
+				<xs:element name="roomRate" type="xs:float" />
+				<xs:element name="daysBooked" type="xs:long" />
+				<xs:element name="cost" type="xs:float" />				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
